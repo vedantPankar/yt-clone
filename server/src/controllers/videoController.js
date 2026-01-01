@@ -47,6 +47,26 @@ export const getAllVideos = async (req, res) => {
       videos,
     });
   } catch (error) {
-    return res.status(500).json({ message: "failed to fetch vieos" });
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+export const getVideoById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const video = await Video.find(id);
+
+    if (!video) {
+      return res.status(400).json({
+        message: "  Video not found",
+      });
+    }
+
+    return res.status(200).json({
+      video: {},
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };
