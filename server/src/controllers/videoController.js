@@ -36,3 +36,17 @@ export const uploadVideo = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+export const getAllVideos = async (req, res) => {
+  try {
+    const videos = await Video.find()
+      .populate("owner", "username email")
+      .sort({ createdAt: -1 });
+
+    return res.status(200).json({
+      videos,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "failed to fetch vieos" });
+  }
+};
