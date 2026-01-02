@@ -3,7 +3,7 @@ import morgan from "morgan";
 import express from "express";
 import authRoutes from "./routes/authRoutes.js";
 import videoRoutes from "./routes/videoRoutes.js";
-import likeRoutes from "./controllers/likeController.js";
+import likeRoutes from "./routes/likeRoutes.js";
 
 const app = express();
 
