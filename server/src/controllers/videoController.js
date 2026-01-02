@@ -55,7 +55,7 @@ export const getVideoById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const video = await Video.find(id);
+    const video = await Video.findById(id);
 
     if (!video) {
       return res.status(400).json({
@@ -64,7 +64,7 @@ export const getVideoById = async (req, res) => {
     }
 
     return res.status(200).json({
-      video: {},
+      video,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
