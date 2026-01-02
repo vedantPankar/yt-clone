@@ -26,6 +26,11 @@ export const toggleLike = async (req, res) => {
       return res.status(200).json({ message: "Video unliked" });
     }
 
+    await Like.create({
+      user: userId,
+      video: videoId,
+    });
+
     return res.status(201).json({ message: "Video liked" });
   } catch (error) {
     return res.status(500).json({ message: error.message });
