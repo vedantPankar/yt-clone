@@ -1,15 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import Home from "./pages/Home";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <h1 className="text-3xl text-red-200">Hello</h1>
-    </>
+    <div className="min-h-screen bg-black">
+      <Header />
+
+      <div className="flex">
+        <Sidebar />
+        <main className="flex-1">
+          <Home />
+        </main>
+      </div>
+    </div>
   );
 }
 
