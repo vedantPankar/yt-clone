@@ -1,19 +1,33 @@
 import { useNavigate } from "react-router-dom";
 
-function VideoCard() {
+function VideoCard({ video }) {
   const navigate = useNavigate();
 
   return (
-    <div onClick={() => navigate("/watch/123")} className="cursor-pointer">
-      <div className="w-full h-40 bg-gray-800 rounded-lg mb-2"></div>
+    <div
+      onClick={() => navigate(`/watch/${video._id}`)}
+      className="cursor-pointer"
+    >
+      {/* Thumbnail */}
+      <img
+        src={video.thumbnail}
+        alt={video.title}
+        className="w-full h-40 object-cover rounded-lg mb-2"
+      />
 
-      <h3 className="text-white text-sm font-semibold line-clamp-2">
-        Sample Video Title Goes Here
-      </h3>
+      {/* Video Info */}
+      <div>
+        <h3 className="text-white text-sm font-semibold line-clamp-2">
+          {video.title}
+        </h3>
 
-      <p className="text-gray-400 text-xs mt-1">Channel Name</p>
+        <p className="text-gray-400 text-xs mt-1">{video.owner?.username}</p>
 
-      <p className="text-gray-500 text-xs">1M views • 1 day ago</p>
+        <p className="text-gray-500 text-xs">
+          {/* Placeholder for now */}
+          Uploaded video
+        </p>
+      </div>
     </div>
   );
 }

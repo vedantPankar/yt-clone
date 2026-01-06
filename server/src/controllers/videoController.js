@@ -21,10 +21,17 @@ export const uploadVideo = async (req, res) => {
       eager_async: true,
     });
 
+    const thumbnailUrl = cloudinary.url(result.public_id, {
+      resource_type: "video",
+      format: "jpg",
+      transformation: [{ width: 480, height: 270, crop: "fill" }],
+    });
+
     const video = await Video.create({
       title,
       description,
       videoUrl: result.eager[0].secure_url,
+      thumbnail: thumbnailUrl, // ✅ NEW
       owner: req.user.id,
     });
 

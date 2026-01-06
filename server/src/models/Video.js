@@ -16,7 +16,7 @@ const videoSchema = new mongoose.Schema(
     },
     thumbnail: {
       type: String,
-      default: "",
+      required: true,
     },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
