@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import Home from "./pages/Home";
+import Watch from "./pages/Watch";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <div className="flex">
         <Sidebar />
         <main className="flex-1">
-          <Home />
+          <Watch />
         </main>
       </div>
     </div>
